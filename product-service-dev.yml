@@ -2,4 +2,4 @@ mongodb:
   connection:
     url: http://localhost:9000/mongo
     username: mitocode
-    password: '{cipher}fae883c14df40cd11596ce6b438695fe92ddf2c98a6daf383030f5b4693eb0cc'
+    password: '{cipher}90f03a620c255aa2d050cd357a88b991eaa18c64084d8a9dc203bac195b209c7'
