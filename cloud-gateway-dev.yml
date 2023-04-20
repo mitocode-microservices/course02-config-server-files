@@ -30,4 +30,8 @@ spring:
             - StripPrefix=2
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
-            - CustomFilter=MitocodeKey,MitocodeValue
+            # - CustomFilter=MitocodeKey, MitocodeValue
+            - name: CustomFilter
+              args:
+                headerKey=MitocodeKey
+                headerValue=MitocodeValue
