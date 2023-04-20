@@ -28,4 +28,4 @@ spring:
             - Path=/api/product-service/**
           filters:
             - StripPrefix=2
-            - AddRequestParameter=red, blue
+            - AddRequestParameter=token,mitocode
