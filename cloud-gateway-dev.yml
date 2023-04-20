@@ -33,5 +33,5 @@ spring:
             # - CustomFilter=MitocodeKey, MitocodeValue
             - name: CustomFilter
               args:
-                headerKey=MitocodeKey
-                headerValue=MitocodeValue
+                headerKey: MitocodeKey
+                headerValue: MitocodeValue
