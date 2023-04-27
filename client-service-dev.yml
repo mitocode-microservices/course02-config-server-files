@@ -22,19 +22,25 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 10
         slowCallDurationThreshold: 2s
         slowCallRateThreshold: 10
-
-      mitocodeCircuitbreakerUser:
-        slidingWindowSize: 50
-        failureRateThreshold: 80
-        waitDurationInOpenState: 15s
-        permittedNumberOfCallsInHalfOpenState: 20
-        slowCallDurationThreshold: 2s
-        slowCallRateThreshold: 10
+      # mitocodeCircuitbreakerUser:
+      #   slidingWindowSize: 50
+      #   failureRateThreshold: 80
+      #   waitDurationInOpenState: 15s
+      #   permittedNumberOfCallsInHalfOpenState: 20
+      #   slowCallDurationThreshold: 2s
+      #   slowCallRateThreshold: 10
     instances:
       product-cb:
         base-config: mitocodeCircuitbreakerProduct
-      userCB:
-        base-config: mitocodeCircuitbreakerUser
+      # userCB:
+      #   base-config: mitocodeCircuitbreakerUser
+  timelimiter:
+    configs:
+      mitocodeTimeLimiterProduct:
+        timeoutDuration: 1s
+    instances:
+      product-timelimite:
+        base-config: mitocodeTimeLimiterProduct
 
 # feign:
 #   client:
