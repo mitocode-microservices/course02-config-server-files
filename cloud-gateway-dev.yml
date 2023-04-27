@@ -28,6 +28,10 @@ spring:
             - Path=/api/product-service/**
           filters:
             - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: product-cb
+                fallbackUri: forward:/api/user-service/user
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
             - MitocodeFilter=MitocodeKey, MitocodeValue
@@ -35,9 +39,7 @@ spring:
               # args:
                 # headerKey: MitocodeKey
                 # headerValue: MitocodeValue
-            - name: CircuitBreaker
-              args:
-                name: product-cb
+
 
 resilience4j:
   circuitbreaker:
