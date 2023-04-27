@@ -31,7 +31,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: product-cb
-                fallbackUri: forward:/api/user-service/user
+                fallbackUri: forward:/api/product-service/product
                 statusCodes: 500, 400, 401, 403
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
