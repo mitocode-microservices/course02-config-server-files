@@ -34,7 +34,7 @@ spring:
                 fallbackUri: forward:/api/user-service/user
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
-            - MitocodeFilter=MitocodeKey, MitocodeValue
+            # - MitocodeFilter=MitocodeKey, MitocodeValue
             # - name: CustomFilter
               # args:
                 # headerKey: MitocodeKey
