@@ -32,7 +32,7 @@ spring:
               args:
                 name: product-cb
                 fallbackUri: forward:/api/user-service/user
-                statusCode: 500, 400, 401, 403
+                statusCodes: 500, 400, 401, 403
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
             # - MitocodeFilter=MitocodeKey, MitocodeValue
