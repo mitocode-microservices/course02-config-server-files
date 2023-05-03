@@ -27,12 +27,12 @@ spring:
           predicates:
             - Path=/api/product-service/**
           filters:
-            - StripPrefix=2
             - name: CircuitBreaker
               args:
                 name: product-cb
-                fallbackUri: forward:/api/product-service/product
+                # fallbackUri: forward:/api/user-service/user/
                 statusCodes: 500, 400, 401, 403
+            - StripPrefix=2
             # - AddRequestHeader=token,mitocode
             # - AddResponseHeader=CUSTOM_RESPONSE_HEADER,HEADER_Mitocode
             # - MitocodeFilter=MitocodeKey, MitocodeValue
