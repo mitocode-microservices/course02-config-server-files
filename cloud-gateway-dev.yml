@@ -30,7 +30,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: product-cb
-                fallbackUri: forward:/api/user-service/user/
+                fallbackUri: forward:/api/user-service/user
                 statusCodes: 500, 503, 504, 400, 401, 403
             - StripPrefix=2
             # - AddRequestHeader=token,mitocode
