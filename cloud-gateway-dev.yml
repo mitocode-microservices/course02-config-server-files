@@ -1,6 +1,5 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9090}
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -10,7 +9,6 @@ eureka:
     service-url:
       defaultZone: ${EUREKA.SERVER.HOSTNAME:http://localhost:8761/eureka}
     fetchRegistry: true
-
 resilience4j:
   circuitbreaker:
     configs:
@@ -31,7 +29,6 @@ resilience4j:
     instances:
       product-time:
         base-config: mitocodeTimeLimiterProduct
-
 spring:
   cloud:
     gateway:
@@ -39,22 +36,24 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
-          - Path=/api/product-service/*
+            - Path=/api/product-service/**
           filters:
             - name: CircuitBreaker
               args:
-                  name: product-cb
-                  statusCodes: 400, 401, 403, 500, 503, 504
-                  fallbackUri: forward:/api/user-service/user
+                name: product-cb
+                statusCodes: 400, 401, 403, 500, 503, 504
+                fallbackUri: forward:/fallback
             - StripPrefix=2
-
+        - id: fallback
+          uri: https://restcountries.com/v3.1/name/peru
+          predicates:
+            - Path=/fallback
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/api/user-service/**
           filters:
             - StripPrefix=2
-
 logging:
   level:
     org:
