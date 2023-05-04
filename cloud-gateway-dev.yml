@@ -54,9 +54,3 @@ spring:
             - Path=/api/user-service/**
           filters:
             - StripPrefix=2
-logging:
-  level:
-    org:
-      springframework:
-        cloud:
-          gateway: DEBUG
