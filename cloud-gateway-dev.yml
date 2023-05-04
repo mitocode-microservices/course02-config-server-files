@@ -41,11 +41,11 @@ spring:
             - name: CircuitBreaker
               args:
                 name: product-cb
-                statusCodes: 400, 401, 403, 404, 500, 503, 504
+                statusCodes: 400, 401, 403, 500, 503, 504
                 fallbackUri: forward:/fallback
             - StripPrefix=2
         - id: fallback
-          uri: https://restcountries.com/v3.1/name/peru
+          uri: http://localhost:9001/product/false
           predicates:
             - Path=/fallback
         - id: user-service
