@@ -11,7 +11,6 @@ eureka:
       defaultZone: ${EUREKA.SERVER.HOSTNAME:http://localhost:8761/eureka}
     fetchRegistry: true
 
-
 resilience4j:
   circuitbreaker:
     configs:
@@ -32,3 +31,26 @@ resilience4j:
     instances:
       product-time:
         base-config: mitocodeTimeLimiterProduct
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+          - Path=/api/product-service/*
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: product-cb
+                fallbackUri: forward:/api/user-service/user
+            - StripPrefix=2
+
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user-service/**
+          filters:
+            - StripPrefix=2
