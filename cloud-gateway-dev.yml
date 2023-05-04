@@ -44,7 +44,7 @@ spring:
             - name: CircuitBreaker
               args:
                   name: product-cb
-                  statusCodes: 400, 401, 403, 500, 503
+                  statusCodes: 400, 401, 403, 500, 503, 504
             - StripPrefix=2
 
         - id: user-service
