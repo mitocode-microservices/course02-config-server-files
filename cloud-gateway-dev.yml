@@ -15,7 +15,7 @@ resilience4j:
   circuitbreaker:
     configs:
       mitocodeCircuitbreakerProduct:
-        slidingWindowSize: 20
+        slidingWindowSize: 10
         failureRateThreshold: 75
         waitDurationInOpenState: 30s
         permittedNumberOfCallsInHalfOpenState: 10
@@ -43,10 +43,9 @@ spring:
           filters:
             - name: CircuitBreaker
               args:
-                name: product-cb
-                fallbackUri: forward:/api/user-service/user
+                  name: product-cb
+                  statusCodes: 400, 401, 403, 500, 503
             - StripPrefix=2
-
 
         - id: user-service
           uri: lb://user-service
