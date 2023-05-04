@@ -23,3 +23,31 @@ spring:
       # password: '{cipher}225d9814e6187bd8ab890c72d08bd557185cb3e783a23efec8bff01c030b3172'
       uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
+
+info:
+  app:
+    name: Microservicio Product Service 
+    description: Módulo de la arquitectura que disponibiliza información de los Productos
+    version: 1.0.0-SNAPSHOT
+
+management:
+  auditevents:
+    enable: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path:/actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, memory
+          show-components: always
+          show-details: always
+  info:
+    env:
+      enable: true
+  health:
+    env:
+      enable: true
