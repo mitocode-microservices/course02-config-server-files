@@ -16,6 +16,16 @@ eureka:
     refresh:
       enable: true
 
+### Mongo database configuration
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: mitocode
+      username: mitocode
+      password: mitocode
+      authentication-database: admin
+
 mitocode:
   security:
     client: clientMitocode
