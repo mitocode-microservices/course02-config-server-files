@@ -1,0 +1,29 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9001}
+
+### Eureka Client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
+
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mitocode
+      username: mitocode
+      password: mitocode
+      uri: mongodb://mitocode:mitocode@localhost:27017
+      authentication-database: admin
