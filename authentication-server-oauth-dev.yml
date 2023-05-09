@@ -1,5 +1,5 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:8888}
+  port: ${CUSTOM.SERVER.PORT:8088}
 
 ### Eureka Client configuration
 eureka:
@@ -27,3 +27,9 @@ spring:
       password: mitocode
       uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
+
+mitocode:
+  security:
+    client: mitocode
+    secret: mitocode
+    signKey: b4f19a90798bfcededcf89c2f76baf65739988bd15cb76a317baeca6c4a4eb1e915b40e620bbb8601e4ca981d9ca036c754ebdf9ece1c9c95fcb2ca1f526f8c588065e9e350534afad30f142906f76757bb6673cc0741c2fe7f83bbeb0060eb2b7d6fc9a63fdc9f644a867327c05fc9c37d17d549fdcdb2970a075fce4524afe8fbd6ffa231c8038f94cfa0eb98c6ff3a61efac2151b8c0b915c0d7456f95015340490e1730ff4b997745849ec4a3cc76f2a83dbf32af3b396f588d8ca7ad60252997b01f7f7fb4edd2feaf730159190f3809662fc242183f9f71b955c888b41
