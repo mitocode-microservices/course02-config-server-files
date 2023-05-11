@@ -24,6 +24,7 @@ eureka:
       database: mitocode
       username: mitocode
       password: mitocode
+      uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
 
 mitocode:
