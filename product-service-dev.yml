@@ -28,6 +28,13 @@ spring:
       uri: mongodb://mitocode:mitocode@localhost:27017
       authentication-database: admin
 
+# Kafka Configuration
+kafka:
+  mitocode:
+    topic: mitocode
+    server: 127.0.0.1
+    port: 9092
+
 info:
   app:
     name: Microservicio Product Service 

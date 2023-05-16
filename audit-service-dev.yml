@@ -26,7 +26,6 @@ spring:
       authentication-database: admin
 
 # Kafka Configuration
-
 kafka:
   mitocode:
     topic: mitocode
