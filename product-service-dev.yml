@@ -50,3 +50,11 @@ management:
   info:
     env:
       enabled: true
+
+springdoc:
+  api-docs:
+    path: /apis-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
