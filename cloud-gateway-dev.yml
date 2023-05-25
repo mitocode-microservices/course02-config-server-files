@@ -38,18 +38,27 @@ spring:
           predicates:
             - Path=/api/product-service/**
           filters:
+            # - name: CircuitBreaker
+              # args:
+                # name: product-cb
+                # statusCodes: 400, 401, 403, 500, 503, 504
+                # fallbackUri: forward:/fallback
             - StripPrefix=2
 
         - id: product-query-service
           uri: lb://product-query-service
           predicates:
             - Path=/api/product-query-service/**
+            - Weight=product-query-group, 20
           filters:
-            # - name: CircuitBreaker
-              # args:
-                # name: product-cb
-                # statusCodes: 400, 401, 403, 500, 503, 504
-                # fallbackUri: forward:/fallback
+            - StripPrefix=2
+
+        - id: product-query-service-v2
+          uri: lb://product-query-service
+          predicates:
+            - Path=/api/product-query-service/**
+            - Weight=product-query-group, 80
+          filters:
             - StripPrefix=2
             
         - id: fallback
