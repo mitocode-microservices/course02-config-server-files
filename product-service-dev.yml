@@ -32,7 +32,7 @@ spring:
 kafka:
   mitocode:
     topic: mitocode
-    server: 127.0.0.1
+    server: ${KAFKA.SERVER.HOSTNAME:127.0.0.1}
     port: 9092
 
 info:
