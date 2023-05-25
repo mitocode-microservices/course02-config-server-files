@@ -54,7 +54,7 @@ spring:
             - StripPrefix=2
 
         - id: product-query-service-v2
-          uri: lb://product-query-service
+          uri: lb://product-query-service-v2
           predicates:
             - Path=/api/product-query-service/**
             - Weight=product-query-group, 80
