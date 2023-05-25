@@ -1,0 +1,60 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9022}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA.SERVER.HOSTNAME:http://localhost:8761/eureka}
+    fetchRegistry: true
+    healthcheck:
+      enable: true
+    refresh:
+      enable: true
+
+
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mitocode
+      # username: '{cipher}15dfd68adfe32e63d2ef16b7e1b0b090c7c1a39c824656c1010db7870dd49b04'
+      # password: '{cipher}225d9814e6187bd8ab890c72d08bd557185cb3e783a23efec8bff01c030b3172'
+      uri: ${MONGODB.URL.CONNECTION:mongodb://mitocode:mitocode@localhost:27017}
+      authentication-database: admin
+
+# Kafka Configuration
+kafka:
+  mitocode:
+    topic: mitocode
+    server: ${KAFKA.SERVER.HOSTNAME:127.0.0.1}
+    port: 9092
+
+info:
+  app:
+    name: Microservicio Product Service 
+    description: Módulo de la arquitectura que disponibiliza información de los Productos
+    version: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  info:
+    env:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: false

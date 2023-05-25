@@ -38,13 +38,20 @@ spring:
           predicates:
             - Path=/api/product-service/**
           filters:
+            - StripPrefix=2
+
+        - id: product-query-service
+          uri: lb://product-query-service
+          predicates:
+            - Path=/api/product-query-service/**
+          filters:
             # - name: CircuitBreaker
               # args:
                 # name: product-cb
                 # statusCodes: 400, 401, 403, 500, 503, 504
                 # fallbackUri: forward:/fallback
             - StripPrefix=2
-
+            
         - id: fallback
           uri: http://localhost:9002/product/false
           predicates:
