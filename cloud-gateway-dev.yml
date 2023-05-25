@@ -49,7 +49,7 @@ spring:
           uri: lb://product-query-service
           predicates:
             - Path=/api/product-query-service/**
-            - Weight=product-query-group, 5
+            - Weight=product-query-group, 90
           filters:
             - StripPrefix=2
 
@@ -57,7 +57,7 @@ spring:
           uri: lb://product-query-service-v2
           predicates:
             - Path=/api/product-query-service/**
-            - Weight=product-query-group, 95
+            - Weight=product-query-group, 10
           filters:
             - StripPrefix=2
             
