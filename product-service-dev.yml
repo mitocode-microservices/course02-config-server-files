@@ -31,7 +31,7 @@ spring:
 # Kafka Configuration
 kafka:
   mitocode:
-    topic: mitocode
+    topic: product-mongodb
     server: ${KAFKA.SERVER.HOSTNAME:127.0.0.1}
     port: 9092
 
